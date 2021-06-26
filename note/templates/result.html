@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云笔记-搜索</title>
+</head>
+<body>
+<p align="right">
+    <a href="/user/index/">个人中心</a>
+    <a href="/user/logout/">退出</a>
+</p>
+<div align="center">
+    <h1>
+        {{ note.title }}
+    </h1>
+    <p>
+        作者：{{ user }}
+    </p>
+</div>
+<p>
+    {{ note.content }}
+</p>
+<br/>
+<p>
+    创建时间：{{ note.create_time }}
+    更新时间：{{ note.update_time }}
+</p>
+</body>
+</html>

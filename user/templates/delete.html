@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云笔记-注销</title>
+</head>
+<body>
+<p align="right">
+    <a href="/user/index/">个人中心</a>
+    <a href="/user/logout/">退出</a>
+</p>
+<div align="center">
+    <p>账号注销</p>
+    <form action="/user/delete/" method="post">
+        <p>你好，{{ username }}</p>
+        <p>
+            <input type="password" name="password" placeholder="请输入密码">
+        </p>
+        <p>
+            <input type="submit" value="注销">
+        </p>
+        <p style="color: red">
+            {{ error }}
+        </p>
+    </form>
+</div>
+</body>
+</html>

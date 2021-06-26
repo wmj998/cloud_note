@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云笔记-修改</title>
+</head>
+<body>
+<p align="right">
+    <a href="/user/index/">个人中心</a>
+    <a href="/user/logout/">退出</a>
+</p>
+{% block content %}
+    <div align="center">
+        <form action="/note/update/?id={{ note_id }}" method="post">
+            <h6>标题</h6>
+            <p>
+                <textarea cols="50" rows="1" name="title">{{ note.title }}</textarea>
+            </p>
+            <h6>内容</h6>
+            <p>
+                <textarea cols="50" rows="40" name="content">{{ note.content }}</textarea>
+            </p>
+            <p>
+                <input type="submit" value="保存">
+                <a href="/note/delete/?id={{ note.id }}">删除</a>
+            </p>
+            <p>创建时间：{{ note.create_time }}</p>
+            <p>更新时间：{{ note.update_time }}</p>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>

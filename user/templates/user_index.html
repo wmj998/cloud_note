@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云笔记-个人主页</title>
+</head>
+<body>
+<p align="right">
+    <a href="/user/delete/">注销</a>
+    <a href="/user/logout/">退出</a>
+</p>
+<div align="center">
+    <h1>欢迎{{ user }}</h1>
+    <p>
+        <a href="/note/add/">
+            <button>添加</button>
+        </a>
+    </p>
+</div>
+<hr>
+<div align="left">
+    <form action="/note/search/" method="post">
+        <h2>搜索</h2>
+        <textarea cols="20" rows="1" name="search">{{ result }}</textarea>
+        <input type="submit" value="搜索">
+    </form>
+    <p>
+        {% for note in search_notes %}
+            <p>
+                <a href="/note/result/?id={{ note.id }}">{{ note.title }}</a>
+            </p>
+        {% endfor %}
+    {{ error }}
+    </p>
+</div>
+<div align="center">
+    {% if notes %}
+        {% for note in now_page %}
+            <p>
+                标题：<a href="/note/update/?id={{ note.id }}">{{ note.title }}</a>
+                <a href="/note/update/?id={{ note.id }}">编辑</a>
+                <a href="/note/delete/?id={{ note.id }}">删除</a>
+            </p>
+        {% endfor %}
+    {% else %}
+        <p style="color: aqua">还没有笔记</p>
+    {% endif %}
+    <br/>
+    <p>
+        {% if notes %}
+            {% if now_page.has_previous %}
+                <a href="/user/index/?page={{ now_page.previous_page_number }}">上一页</a>
+            {% else %}
+                上一页
+            {% endif %}
+            {% for number in  paginator.page_range %}
+                {% if number == now_page.number %}
+                    {{ number }}
+                {% else %}
+                    <a href="/user/index/?page={{ number }}">{{ number }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if now_page.has_next %}
+                <a href="/user/index/?page={{ now_page.next_page_number }}">下一页</a>
+            {% else %}
+                下一页
+            {% endif %}
+        {% endif %}
+    </p>
+</div>
+</body>
+</html>

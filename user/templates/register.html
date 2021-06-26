@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云笔记-注册</title>
+</head>
+<body>
+<div align="center">
+    <p>
+        账号注册 <a href="/index/">首页</a>
+    </p>
+    <form action="/user/register/" method="post">
+        <p>
+            <input type="text" name="username" value="{{ username }}" placeholder="请输入用户名">
+        </p>
+        <p>
+            <input type="password" name="password_1" value="{{ password_1 }}" placeholder="请输入密码">
+        </p>
+        <p>
+            <input type="password" name="password_2" value="{{ password_2 }}" placeholder="请再次输入密码">
+        </p>
+        <p>
+            <input type="submit" value="注册">
+        </p>
+    </form>
+    <p style="color: red">
+        {{ error }}
+    </p>
+</div>
+</body>
+</html>

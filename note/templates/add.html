@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云笔记-添加</title>
+</head>
+<body>
+<div align="center">
+    <p align="right">
+        <a href="/user/index/">个人中心</a>
+        <a href="/user/logout/">退出</a>
+    </p>
+    <form action="/note/add/" method="post">
+        <h1>
+            标题：<input type="text" name="title" placeholder="标题">
+            <input type="submit" value="保存">
+        </h1>
+        <p>{{ error }}</p>
+        <p>
+            <textarea cols="50" rows="40" name="content" placeholder="内容"></textarea>
+        </p>
+    </form>
+</div>
+</body>
+</html>

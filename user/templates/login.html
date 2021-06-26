@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云笔记-登录</title>
+</head>
+<body>
+<div align="center">
+    <p>
+        账号登录 <a href="/index/">首页</a>
+    </p>
+    <form action="/user/login/" method="post">
+        <p>
+            <input type="text" name="username" value="{{ username }}" placeholder="请输入用户名">
+        </p>
+        <p>
+            <input type="password" name="password" value="{{ password }}" placeholder="请输入密码">
+        </p>
+        <p>
+            <input type="submit" value="登录">
+        </p>
+    </form>
+    <p style="color: red">
+        {{ error }}
+    </p>
+</div>
+</body>
+</html>
